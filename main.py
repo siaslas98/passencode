@@ -33,7 +33,18 @@ def encode_password(password):
 
 # Tom's Decode Function
 def decode_password(password):
-    pass
+    decoded_string = ""
+    for digit in password:
+        digit = int(digit) - 3
+        if digit == -1:
+            digit = 9
+        elif digit == -2:
+            digit = 8
+        elif digit == -3:
+            digit = 7
+        decoded_string += str(digit)
+    return decoded_string
+
 
 # This function is has multiple print statements for displaying the menu
 def display_menu():
@@ -68,7 +79,7 @@ if __name__ == "__main__":
             print()
             continue
         elif menu_option == '2' and (encoded_password):
-            print(f'The encoded password is {encoded_password}, and the original password is ...')  # Any ... is meant to be replaced
+            print(f'The encoded password is {encoded_password}, and the original password is {decode_password(encoded_password)}')  # Any ... is meant to be replaced
             print()
         elif menu_option == '3':
             break
