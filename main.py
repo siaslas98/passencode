@@ -51,23 +51,26 @@ if __name__ == "__main__":
 
     menu_option = ''
 
+    encoded_password = ''
+
     while menu_option != '3':
         display_menu()
         menu_option = input('Please enter an option: ')
-        encoded_password = ''
 
         if menu_option == '1':
             password = input('Enter an 8 digit password to be encoded: ')
             encoded_password = encode_password(password)
             print('Your password has been encoded and stored!')
+            print()
 
-        if menu_option == '2' and (not encoded_password):
+        elif menu_option == '2' and (not encoded_password):
             print('You didn\'t type a password to encode yet')
+            print()
             continue
-        else:
+        elif menu_option == '2' and (encoded_password):
             print(f'The encoded password is {encoded_password}, and the original password is ...')  # Any ... is meant to be replaced
-
-        if menu_option == '3':
+            print()
+        elif menu_option == '3':
             break
 
 
